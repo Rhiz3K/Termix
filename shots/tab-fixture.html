@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=412, initial-scale=1" />
+  <link rel="stylesheet" href="frontend.css" />
+  <style>
+    :root {
+      --sidebar: #18181b;
+      --surface: #27272a;
+      --border: #3f3f46;
+      --foreground: #fafafa;
+      --muted-foreground: #a1a1aa;
+      --accent-brand: #3b82f6;
+      --muted: #3f3f46;
+      --background: #09090b;
+      --spacing: 0.25rem;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #09090b; color: #fafafa; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .caption { font: 11px/1.3 ui-monospace, monospace; color: #a1a1aa; padding: 8px 10px 4px; }
+    .ico { width: 14px; height: 14px; flex-shrink: 0; opacity: .8; }
+  </style>
+</head>
+<body>
+  <div class="caption">BEFORE — 412px viewport, compiled classes omitted (raw title, no max-width)</div>
+  <div id="before" class="flex flex-col shrink-0 min-w-0" style="width:412px;border:1px solid var(--border)">
+    <div class="flex items-end bg-sidebar min-w-0 h-12.5 border-b border-border">
+      <div class="relative flex h-full flex-1 min-w-0 overflow-x-auto scrollbar-none pl-px">
+        <div class="group/tab relative flex items-center gap-2 shrink-0 border-r border-border text-sm px-2.5 font-medium bg-surface text-foreground">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          rhiz3k-HP-ProDesk-600-G6-Desktop-Mini-PC
+          <div class="flex items-center gap-0.5 ml-1">
+            <button class="flex items-center justify-center size-5 rounded-sm text-muted-foreground" aria-label="nav.refreshTab">⟳</button>
+            <button class="flex items-center justify-center size-5 rounded-sm text-muted-foreground" aria-label="share">⎋</button>
+            <button class="flex items-center justify-center size-5 rounded-sm text-muted-foreground" aria-label="nav.close">×</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center h-full shrink-0 border-l border-border text-muted-foreground">
+        <div class="h-full w-12.5 flex items-center justify-center">▾</div>
+        <div class="h-full w-12.5 flex items-center justify-center">⛶</div>
+        <div class="h-full w-12.5 flex items-center justify-center">⬜</div>
+        <div class="h-full w-12.5 flex items-center justify-center">^</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption">AFTER — 412px, real plugin CSS: @container + max-w-[min(16rem,100cqw)] + truncate + shrink-0 icons</div>
+  <div id="after" class="flex flex-col shrink-0 min-w-0" style="width:412px;border:1px solid var(--border)">
+    <div class="flex items-end bg-sidebar min-w-0 h-12.5 border-b border-border">
+      <div class="@container relative flex h-full flex-1 min-w-0 overflow-x-auto scrollbar-none pl-px">
+        <div class="group/tab relative flex items-center gap-2 shrink-0 max-w-[min(16rem,100cqw)] md:max-w-none border-r border-border text-sm px-2.5 font-medium bg-surface text-foreground">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <span class="min-w-0 truncate" title="rhiz3k-HP-ProDesk-600-G6-Desktop-Mini-PC">rhiz3k-HP-ProDesk-600-G6-Desktop-Mini-PC</span>
+          <div class="flex shrink-0 items-center gap-0.5 ml-1">
+            <button class="flex items-center justify-center size-5 rounded-sm text-muted-foreground" aria-label="nav.refreshTab">⟳</button>
+            <button class="flex items-center justify-center size-5 rounded-sm text-muted-foreground" aria-label="share">⎋</button>
+            <button class="flex items-center justify-center size-5 rounded-sm text-muted-foreground" aria-label="nav.close">×</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center h-full shrink-0 border-l border-border text-muted-foreground">
+        <div class="h-full w-12.5 flex items-center justify-center">▾</div>
+        <div class="h-full w-12.5 flex items-center justify-center">⛶</div>
+        <div class="h-full w-12.5 flex items-center justify-center">⬜</div>
+        <div class="h-full w-12.5 flex items-center justify-center">^</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
